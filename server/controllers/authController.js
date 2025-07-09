@@ -17,6 +17,14 @@ export const login = async (req, res) => {
     if (rows.length > 0) {
       const user = rows[0];
 
+
+      if (user.cargo === "admin") {
+        return res.json({
+          success: false,
+          message: "Esta cuenta no es de prefecto. Ingresa con una cuenta de prefecto.",
+        });
+      }
+
       let passwordMatch = false;
 
       // Verificar si la contraseña está hasheada

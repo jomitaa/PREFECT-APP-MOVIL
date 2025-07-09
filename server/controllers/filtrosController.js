@@ -12,8 +12,7 @@ export const filtros = async (req, res) => {
     CONCAT(p.nom_persona, ' ', p.appat_persona) AS nombre_persona,
     g.sem_grupo,
     g.nom_grupo,
-    s.id_salon,
-    a.fecha_asistencia AS fecha_asistencia,
+    s.nom_salon,
    
     per.anio,
     per.periodo
@@ -29,7 +28,7 @@ FROM
         `);
 
         
-        const salones = [...new Set(horarios.map(h => h.id_salon))];
+        const salones = [...new Set(horarios.map(h => h.nom_salon))];
         const dias = [...new Set(horarios.map(h => h.dia_horario))];
         const grupos = [...new Set(horarios.map(h => `${h.nom_grupo}`))];
         const profesores = [...new Set(horarios.map(h => h.nombre_persona))];

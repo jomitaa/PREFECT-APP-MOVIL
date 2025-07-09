@@ -14,9 +14,7 @@ export const filtros = async (req, res) => {
     g.nom_grupo,
     s.id_salon,
     a.fecha_asistencia AS fecha_asistencia,
-    a.validacion_asistencia AS asistencia,
-    r.validacion_retardo AS retardo,
-    f.validacion_falta AS falta,
+   
     per.anio,
     per.periodo
 FROM
@@ -25,9 +23,7 @@ FROM
     INNER JOIN salon s ON h.id_salon = s.id_salon
     JOIN materia m ON h.id_materia = m.id_materia
     JOIN persona p ON h.id_persona = p.id_persona
-    LEFT JOIN asistencia a ON h.id_horario = a.id_horario
-    LEFT JOIN retardo r ON h.id_horario = r.id_horario
-    LEFT JOIN falta f ON h.id_horario = f.id_horario
+   
     JOIN contenedor c ON h.id_contenedor = c.id_contenedor
     JOIN periodos per ON c.id_periodo = per.id_periodo
         `);

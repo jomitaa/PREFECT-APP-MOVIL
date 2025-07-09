@@ -39,7 +39,6 @@ export const obtenerHorarios = async (req, res) => {
 
         const idContenedor = contenedorRows[0].id_contenedor;
 
-        // 3️⃣ Consulta filtrando por el contenedor actual
         const queryText = `
             SELECT DISTINCT
                 h.id_horario,
@@ -53,9 +52,7 @@ export const obtenerHorarios = async (req, res) => {
                 s.id_salon,
                 g.id_turno,
                 t.nom_turno,
-                CASE WHEN a.id_asistencia IS NOT NULL THEN '✔' ELSE '' END AS asistencia,
-                CASE WHEN r.id_retardo IS NOT NULL THEN '✔' ELSE '' END AS retardo,
-                CASE WHEN f.id_falta IS NOT NULL THEN '✔' ELSE '' END AS falta
+              
             FROM
                 horario h
             INNER JOIN grupo g ON h.id_grupo = g.id_grupo
@@ -63,9 +60,7 @@ export const obtenerHorarios = async (req, res) => {
             JOIN materia m ON h.id_materia = m.id_materia
             JOIN persona p ON h.id_persona = p.id_persona
             join turno t on g.id_turno = t.id_turno
-            LEFT JOIN asistencia a ON h.id_horario = a.id_horario
-            LEFT JOIN retardo r ON h.id_horario = r.id_horario
-            LEFT JOIN falta f ON h.id_horario = f.id_horario
+         
             WHERE h.dia_horario = ? AND h.id_contenedor = ? AND h.id_escuela = ?;
 `;
 

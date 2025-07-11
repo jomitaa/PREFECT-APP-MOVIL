@@ -69,7 +69,7 @@ const mailOptions = {
     subject: "Tu código de verificación en dos pasos",
     html: `
     <!DOCTYPE html>
-    <html>
+<html lang="es">
     <head>
       <meta charset="UTF-8">
       <style>

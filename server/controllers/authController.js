@@ -174,7 +174,7 @@ const mailOptions = {
     </body>
     </html>
     `,
-    text: `Verificación en Dos Pasos\n\nHemos recibido una solicitud para acceder a tu cuenta de Prefec App.\n\nTu código de verificación es: ${otpCode}\n\nEste código expirará en 10 minutos.\n\n¿No solicitaste este código? Si no fuiste tú, te recomendamos cambiar tu contraseña inmediatamente.\n\n© ${new Date().getFullYear()} Prefec App.`
+    text: `Verificación en Dos Pasos\n\nHemos recibido una solicitud para acceder a tu cuenta de Prefec App.\n\nTu código de verificación es: ${otp}\n\nEste código expirará en 10 minutos.\n\n¿No solicitaste este código? Si no fuiste tú, te recomendamos cambiar tu contraseña inmediatamente.\n\n© ${new Date().getFullYear()} Prefec App.`
 };
 
         await transporter.sendMail(mailOptions);

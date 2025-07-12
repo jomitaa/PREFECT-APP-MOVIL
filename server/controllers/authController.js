@@ -155,7 +155,7 @@ const mailOptions = {
         
         <div class="code-container">
           <p>Tu código de verificación es:</p>
-          <div class="verification-code">${otpCode}</div>
+          <div class="verification-code">${otp}</div>
           <p>Este código expirará en 10 minutos.</p>
         </div>
         

@@ -4,8 +4,9 @@ import conexion from "../config/db.js";
 export const obtenerHorarios = async (req, res) => {
    const diaActual = new Date().toLocaleDateString('es-MX', { weekday: 'long' });
     const diaCapitalizado = diaActual.charAt(0).toUpperCase() + diaActual.slice(1);
-    const diaPrueba = 'Lunes'; // Puedes cambiar esto a `diaCapitalizado` si deseas usar el día real
-
+    const horaDia = new Date().getHours() + ':' + String(new Date().getMinutes()).padStart(2, '0');
+    const diaPrueba = diaCapitalizado;
+    console.log('Día actual:', diaPrueba);
     const fechaActual = new Date();
     const anio = fechaActual.getFullYear();
     const mes = fechaActual.getMonth() + 1;
